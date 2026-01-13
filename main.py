@@ -81,6 +81,62 @@ else:
 
 print("Between",Number1,",",Number2,"and",Number3,",",largest_number,"is the largest number")
 
+
+#pyramid_blocks=int(input('enter the number of block'))
+
+#top=1
+#layers=0
+#while pyramid_blocks>0:
+    #if top>pyramid_blocks:
+        #break
+    #pyramid_blocks=pyramid_blocks-top
+    #top=top+1
+    #layers=layers+1
+
+#print(layers)
+#print('remaining bricks',pyramid_blocks)
+
+
+
+#loop while
+countdown = 10
+while countdown != 0:
+    print("wait a little ")
+    countdown = countdown - 1
+print ("outside loop")
+
+#loop for
+for i in range(6):
+    if i == 3:
+        break
+    print("this is iteration" , i)
+print("outside loop")
+
+for i in range(6):
+    if i == 3:
+        continue
+    print("this is iteration" , i)
+print("outside loop")
+
+#lists
+number = [1,2,3,4,6]
+#outputing based on lists
+print(number)
+#print(number[10]) #is errorus
+
+#adding items to list
+number.append(7)
+print(number)
+number.insert(2,10)
+print(number)
+
+#removing items from list
+del number[2]
+print(number)
+
+number = []
+print (number)
+
     
 
 
