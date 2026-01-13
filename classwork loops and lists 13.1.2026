@@ -1,1 +1,73 @@
-.
+#1. Write a program that will continuously get a number input from the user until they enter 0 and you will display how many odd and even numbers they entered
+
+odd = 0
+even = 0
+
+while True:
+    n = int(input("Enter number:"))
+    if n == 0:
+        break
+    if n % 2 == 0:
+        even += 1
+    else:
+        odd += 1
+
+    print("Odd:", odd)
+    print("Even:", even)
+
+#2. Write a program that will calculate the layers of a pyramid based on how many blocks the user enters as input. For example if the user inputs 6, the output will be 3 layers. The pyramid will have 1 block in the top most layer and will have one extra block in each subsequent layer.
+
+blocks=int(input('enter the number of blocks'))
+
+top=1
+layers=0
+while blocks>0:
+    if top>blocks:
+        break
+    blocks= blocks-top
+    top=top+1
+    layers=layers+1
+
+print(layers)
+print('the remaining bricks',blocks)
+
+#it continues to ask the user for input until a certain condition you decide is met
+#saves all student data in lists.
+# Display all students names, all grades, and all students with their respective grades.
+# (Optional) Implement a method to sort the grades of the students in ascending and descending order.
+
+names = []
+scores = []
+grades = []
+student_name = ""
+while student_name != "0" :
+    student_name = input("Enter student name: ")
+    score = int(input("Enter test score"))
+    if score < 0 or score > 100:
+        print("invalid score number, score between 0-100")
+    elif score > 50:
+        print("you have passed")
+    else:
+        print("you have failed")
+
+    if score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    elif score >= 70:
+        grade = "C"
+    elif score >= 60:
+        grade = "D"
+    elif score >= 50:
+        grade = "E"
+    else:
+        grade = "F"
+
+    names.append(student_name)
+    scores.append(score)
+    grades.append(grade)
+
+print("All names:", names)
+print("All scores:", scores)
+print("All grades:", grades)
+print("Students with grades:")
