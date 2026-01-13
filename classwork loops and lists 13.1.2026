@@ -67,7 +67,6 @@ while student_name != "0" :
     scores.append(score)
     grades.append(grade)
 
-print("All names:", names)
-print("All scores:", scores)
-print("All grades:", grades)
 print("Students with grades:")
+for i in range(len(names)):
+    print(names[i] + " - " + str(scores[i]) + " - " + grades[i])
