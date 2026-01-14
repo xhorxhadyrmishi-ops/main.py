@@ -1,0 +1,67 @@
+my_list = [3, 23, 12, 7, 9, 15, 8, 44, 27, 30]
+
+# 1 we display the list in this format 3-23-12-7-9-15-8-44-27-30
+# the *my_list is to "spread out" the elements of the list
+print(*my_list, sep="-")
+
+# 2. Display the list in reverse order with the same format in 1.
+for i in range(len(my_list) - 1, -1, -1):
+    # start at last index, go down to 0
+    if i > 0:
+        print(my_list[i], end="-")
+    else:
+        print(my_list[i])
+
+# 3. Find the smallest and largest elements using manual comparisons inside a for loop.
+# we assume that the first element (index 0) is the smallest and the largest
+smallest = my_list[0]
+largest = my_list[0]
+for num in my_list:  # the loop checks every number in the list
+    if num < smallest:  # checks each number to the assigned smallest number and when the condition becomes True it sets that number as the smallest
+        smallest = num
+    if num > largest:  # same thing but for the largest number
+        largest = num
+
+print("Smallest number in thw list :", smallest)  # prints out the result
+print("Largest number in the list :", largest)
+
+# 4. Calculate the sum and average using the loop.
+total = 0
+# we add each number to total to calculate sum
+for num in my_list:
+    total = total + num
+
+# Calculate average
+average = total / len(my_list)
+
+print("Sum:", total)
+print("Average:", average)
+
+# 5. Search for a number provided by the user, reporting that the number is not present or not
+search_number = int(input("Enter a number to look for in the list: "))
+
+if search_number in my_list:
+    print(search_number, "is in the list.")
+else:
+    print(search_number, "is not in the list.")
+
+# 6. Sort the list and display as the same format in 1.  Tip: By repeatedly finding the smallest, moving it into a new list, and removing it from the working copy. You may use built-in pop and append functions but don't use build in sort function.
+sorted_list = []  # we make an empty list for the sorted my_list
+
+while len(my_list) > 0:  # this loop will run True until the og list has no more elements
+    # We assume first element (index 0) is smallest element
+    smallest = my_list[0]
+
+    # we find the actual smallest
+    for num in my_list:
+        if num < smallest:
+            smallest = num
+
+    # then move the smallest to the new sorted list, for this i used .append instead of .insert so that the next number gets added at the end instead of at a specific index
+    sorted_list.append(smallest)
+
+    # delete smallest from my_list using its index
+    del my_list[my_list.index(smallest)]
+
+# print the sorted list in the format of task 1
+print(*sorted_list, sep="-")
