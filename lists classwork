@@ -68,3 +68,78 @@ if scores:
     print("Congratulations " + names[max_index] + "! You have the highest score: " + str(max_score))
 else:
     print()
+
+#3. Create a program that will take a list and a number from the user. The program will check the list and if the number is part of the list, it will output the index, otherwise it will output “Number not in list”
+
+numbers = input("Enter numbers separated by commas: ").split(",")
+num = input("Enter a number: ")
+
+i = 0
+for n in numbers:
+    if n == num:
+        print("Number found at index", i)
+        break
+    i += 1
+else:
+    print("Number is not in list")
+
+#4. Write a program that will remove duplicate values from a list.
+
+numbers = input("Enter numbers separated by commas: ").split(",")
+
+unique = []
+for n in numbers:
+    if n not in unique:
+        unique.append(n)
+
+print("Original list:", numbers)
+print("Without duplicates:", unique)
+
+#5. Create a program that will implement a lottery system. The system will randomly select 6 numbers from 1-49 and store them in a list. The user will be asked to input 6 numbers and the program will check how many correct numbers the user has found. 1 correct one gets 1 point, 2 correct gets 2 points, 3 correct gets 4 points and so on.
+
+#setting up the random lottery numbers
+
+import random #this will import 6 random numbers
+lottery = []
+while len(lottery) < 6:
+    num = random.randint(1, 49)
+    if num not in lottery:
+        lottery.append(num)
+
+# Get 6 numbers from the user
+user = []
+print("Enter 6 numbers between 1 and 49")
+
+#chexk if the numbers are in the lottery numbers list
+while len(user) < 6:
+    n = int(input("Enter a number: "))
+    if n not in user:
+        user.append(n)
+
+# Counting the correct numbers
+correct = 0
+for number in user:
+    if number in lottery:
+        correct = correct + 1
+
+# Adding the points
+if correct == 1:
+    points = 1
+elif correct == 2:
+    points = 2
+elif correct == 3:
+    points = 4
+elif correct == 4:
+    points = 8
+elif correct == 5:
+    points = 16
+elif correct == 6:
+    points = 32
+else:
+    points = 0
+
+#Printing thw results
+print("Lottery numbers:", lottery)
+print("Your numbers:", user)
+print("Correct numbers:", correct)
+print("Points:", points)
