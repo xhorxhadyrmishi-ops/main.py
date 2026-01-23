@@ -1,1 +1,70 @@
-.
+#1. Based on the Student and Grade Class Assignment from last week. Create a program that can sort lists and print the information in the lists with grades in descending order in the format: [student name] - [grade].
+#2. Based on the Student and Grade Class Assignment from last week. Create a program that will find the largest element in a list using loops. Display a congratulatory message for the student with the highest grade
+
+names = []
+scores = []
+grades = []
+student_name = ""
+
+while True:
+    student_name = input("Enter student name (0 to stop): ")
+    if student_name == "0":
+        break
+
+    score = int(input("Enter test score: "))
+    if score < 0 or score > 100:
+        print("invalid score number, score between 0-100")
+        continue
+    elif score > 50:
+        print("you have passed")
+    else:
+        print("you have failed")
+
+    if score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    elif score >= 70:
+        grade = "C"
+    elif score >= 60:
+        grade = "D"
+    elif score >= 50:
+        grade = "E"
+    else:
+        grade = "F"
+
+    names.append(student_name)
+    scores.append(score)
+    grades.append(grade)
+
+# Sorting the grade from A to F
+for i in range(len(grades)):
+    for j in range(i + 1, len(grades)):
+        if grades[i] > grades[j]:
+            temporary_value = grades[i] #swapign grade
+            grades[i] = grades[j]
+            grades[j] = temporary_value
+
+            temporary_value = names[i]  #name
+            names[i] = names[j]
+            names[j] = temporary_value
+
+            temporary_value = scores[i]  #score
+            scores[i] = scores[j]
+            scores[j] = temporary_value
+
+print("Students sorted by grade (A TO F):")
+for i in range(len(names)):
+    print(names[i] + " - " + grades[i])
+
+#Find the highest score and praise the student for the high result
+if scores:
+    max_score = scores[0]
+    max_index = 0
+    for i in range(1, len(scores)):
+        if scores[i] > max_score:
+            max_score = scores[i]
+            max_index = i
+    print("Congratulations " + names[max_index] + "! You have the highest score: " + str(max_score))
+else:
+    print()
